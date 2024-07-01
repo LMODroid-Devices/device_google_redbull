@@ -12,6 +12,9 @@ PRODUCT_SOONG_NAMESPACES += \
     vendor/qcom/opensource/commonsys-intf/display \
     vendor/qcom/opensource/display
 
+# Add common definitions for Qualcomm
+$(call inherit-product, hardware/qcom-caf/common/common.mk)
+
 # AiAi Config
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/allowlist_com.google.android.as.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/allowlist_com.google.android.as.xml
@@ -45,6 +48,10 @@ PRODUCT_PACKAGES += \
 include hardware/google/pixel/touch/device.mk
 
 # Build necessary packages for system_ext
+
+# Audio
+PRODUCT_PACKAGES += \
+    libaudioroute.vendor
 
 # Display
 PRODUCT_PACKAGES += \
@@ -125,7 +132,8 @@ PRODUCT_PACKAGES += \
 
 # Json
 PRODUCT_PACKAGES += \
-    libjson
+    libjson \
+    libjsoncpp.vendor:32
 
 # Sensors
 PRODUCT_PACKAGES += \
@@ -169,7 +177,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libwifi-hal:64 \
     libwifi-hal-ctrl:64 \
-    libwifi-hal-qcom
+    libwifi-hal-qcom \
+    libwifi-system-iface.vendor:64
 
 # Misc interfaces
 PRODUCT_PACKAGES += \
@@ -219,6 +228,14 @@ PRODUCT_PACKAGES += \
     android.system.net.netd@1.1.vendor:64 \
     vendor.qti.hardware.camera.postproc@1.0.vendor:64 \
     vendor.qti.hardware.systemhelper@1.0.vendor
+
+# Misc
+PRODUCT_PACKAGES += \
+    libcrypto_utils.vendor:64 \
+    libcurl.vendor:64 \
+    libpng.vendor \
+    libsqlite.vendor \
+    libssl.vendor:32
 
 # Properties
 TARGET_VENDOR_PROP := $(LOCAL_PATH)/vendor.prop
