@@ -24,7 +24,7 @@ BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(filter $(BOOT_KERNEL_MODULES), $(K
 
 # Manifests
 DEVICE_MANIFEST_FILE += device/google/redbull/lineage_manifest.xml
-DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += vendor/lineage/config/device_framework_matrix.xml
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += vendor/lmodroid/config/device_framework_matrix.xml
 
 # Partitions
 AB_OTA_PARTITIONS += \
@@ -33,7 +33,7 @@ AB_OTA_PARTITIONS += \
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 
 # Reserve space for gapps install
--include vendor/lineage/config/BoardConfigReservedSize.mk
+-include vendor/lmodroid/config/BoardConfigReservedSize.mk
 
 # SELinux
 BOARD_SEPOLICY_DIRS += device/google/redbull/sepolicy-lineage/dynamic
