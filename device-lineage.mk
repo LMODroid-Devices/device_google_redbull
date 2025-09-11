@@ -33,7 +33,9 @@ PRODUCT_PRODUCT_PROPERTIES += ro.opa.eligible_device=true
 
 # LiveDisplay
 PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.0-service-sdm
+    vendor.lineage.livedisplay-service.sdm
+
+$(call soong_config_set,livedisplay_sdm,enable_dm,false)
 
 # Parts
 PRODUCT_PACKAGES += \
@@ -54,6 +56,9 @@ PRODUCT_PACKAGES += \
     chre_daemon_msm
 
 # Display
+$(call soong_config_set,qtidisplay,default,true)
+$(call soong_config_set,qtidisplay,drmpp,true)
+$(call soong_config_set,qtidisplay,gralloc4,true)
 $(call soong_config_set,qtidisplay,gralloc_handle_has_reserved_size,true)
 
 # GNSS
